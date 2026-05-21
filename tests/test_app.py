@@ -34,3 +34,5 @@ def test_predict_returns_text():
     text = 'Great music!'
     response = client.post('/predict', json={'text': text})
     assert response.json()['text'] == text
+
+## ntcn asdads as 
