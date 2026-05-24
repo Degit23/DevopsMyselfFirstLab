@@ -3,9 +3,28 @@ version: '3.8'
 services:
   app:
     build: .
+    image: amazon-reviews-ml-second:latest
     ports:
       - "8000:8000"
     volumes:
       - ./experiments:/app/experiments
       - ./data:/app/data
+    env_file:
+      - .env
+    depends_on:
+      - db
     restart: unless-stopped
+
+  db:
+    image: postgres:15
+    env_file:
+      - .env
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    restart: unless-stopped
+
+volumes:
+  postgres_data:
+
