@@ -6,3 +6,4 @@ uvicorn==0.46.0
 pytest==7.4.0
 joblib==1.5.3
 psycopg2-binary==2.9.9
+hvac==2.3.0
