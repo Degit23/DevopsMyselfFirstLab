@@ -76,4 +76,11 @@ jobs:
 
     - name: Run app container
       run: |
-        docker run -d --name test-contai
+        docker run -d --name test-container -p 8000:8000 \
+        --link vault:vault \
+        --link postgres:db \
+        --link kafka:kafka \
+        -e VAULT_ADDR=http://vault:8200 \
+        -e VAULT_TOKEN=root-token \
+        -e KAFKA_BOOTSTRAP_SERVERS=kafka:9092 \
+        ${{ secrets.DOCKER_USERNAME }}/amazon-reviews-ml-lab4:latest
