@@ -83,4 +83,4 @@ jobs:
         -e VAULT_ADDR=http://vault:8200 \
         -e VAULT_TOKEN=root-token \
         -e KAFKA_BOOTSTRAP_SERVERS=kafka:9092 \
-        ${{ secrets.DOCKER_USERNAME }}/amazon-reviews-ml-lab4:latest
+        ${{ secrets.DOCKER_USERNAME }}/amazon-reviews-ml-lab4-myself:latest
